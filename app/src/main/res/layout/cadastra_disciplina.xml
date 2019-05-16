@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundColor">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toobar_form"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="4dp"
+        />
+
+    <TextView
+        android:id="@+id/dados_disciplina"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_action_school"
+        android:text="Dados da Disciplina"
+        android:textColor="@color/textColorMain"
+        app:layout_constraintTop_toBottomOf="@id/toobar_form"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawablePadding="8dp"
+        android:textSize="24dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/nome_disciplina_edittext"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+
+        android:textColorHint="@color/textColorNormal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dados_disciplina">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/textColorNormal"
+
+            android:hint="Nome"
+            android:textColor="@color/textColorNormal"
+
+            android:textColorHint="@color/textColorNormal"
+            android:textSize="@dimen/textForm" />
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/sala_disciplina_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Sala"
+        android:textColorHint="@color/textColorNormal"
+        app:layout_constraintTop_toBottomOf="@id/nome_disciplina_edittext"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="230dp">
+
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/textColorNormal"
+            android:drawableStart="@drawable/ic_action_local"
+            android:drawablePadding="20dp"
+            android:hint="hint"
+            android:textColor="@color/textColorNormal"
+            android:textSize="@dimen/textForm" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/professor_disciplina_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColorHint="@color/textColorNormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sala_disciplina_edittext">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/textColorNormal"
+            android:drawableStart="@drawable/ic_action_person"
+            android:drawablePadding="20dp"
+            android:drawableTint="@color/textColorNormal"
+            android:hint="Professor"
+            android:textColor="@color/textColorNormal"
+            android:textSize="@dimen/textForm" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/sobre_materia_disciplina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:textColorHint="@color/textColorNormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/professor_disciplina_edittext">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/textColorNormal"
+            android:hint="Sobre a matéria"
+            android:textColor="@color/textColorNormal" />
+    </android.support.design.widget.TextInputLayout>
+
+
+</android.support.constraint.ConstraintLayout>

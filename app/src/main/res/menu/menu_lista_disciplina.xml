@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mais_opcoes_id"
+        android:icon="@drawable/ic_action_maisopcoes"
+        android:orderInCategory="200"
+    app:showAsAction="ifRoom"
+        android:title="Mais Opções" />
+    <item
+        android:id="@+id/mudar_tema_id"
+        android:icon="@drawable/ic_action_mudar_cor"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        android:title="Mudar Cor" />
+
+</menu>

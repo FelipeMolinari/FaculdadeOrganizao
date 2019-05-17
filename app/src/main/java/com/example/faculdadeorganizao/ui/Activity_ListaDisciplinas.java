@@ -82,9 +82,9 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
         adapter = new RecyclerViewListaDisciplinasAdapter(listDisciplina,getApplicationContext());
         adapter.setItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick() {
-                Toast.makeText(getApplicationContext(), "Item List Clicado", Toast.LENGTH_SHORT).show();
-
+            public void onItemClick(Disciplina disciplina) {
+                Intent intent = new Intent(getApplicationContext(), Activity_DisciplinaEscolhida.class);
+                startActivity(intent);
             }
         });
         recyclerViewList.setAdapter(adapter);

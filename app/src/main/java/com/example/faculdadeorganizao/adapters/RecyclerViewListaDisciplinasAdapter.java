@@ -63,6 +63,7 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
         private TextView nome_disciplina;
         private TextView local_disciplina;
         private ImageView status_disciplina;
+        public Disciplina disciplina;
 
 
 
@@ -74,7 +75,7 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    itemClickListener.onItemClick();
+                    itemClickListener.onItemClick(disciplina);
 
                 }
             });
@@ -89,6 +90,7 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
             nome_disciplina.setText(disciplina.getNome_disciplina());
             local_disciplina.setText(disciplina.getNome_sala());
             setStatusDisciplina(disciplina);
+            this.disciplina = disciplina;
         }
 
         private void setStatusDisciplina(Disciplina disciplina) {

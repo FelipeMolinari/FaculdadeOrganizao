@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.Activity_CadastroDisciplina"/>
+        <activity android:name=".ui.Activity_DisciplinaEscolhida"></activity>
+        <activity android:name=".ui.Activity_CadastroDisciplina" />
         <activity android:name=".ui.Activity_ListaDisciplinas">
-            <intent-filter >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

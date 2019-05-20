@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textForm">20dp</dimen>
+    <dimen name="textMin">14dp</dimen>
+    <dimen name="textMed">16dp</dimen>
+    <dimen name="textBig">30dp</dimen>
 </resources>

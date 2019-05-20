@@ -1,20 +1,18 @@
 package com.example.faculdadeorganizao.ui;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.faculdadeorganizao.DAO.ListaDisciplinaDAO;
@@ -51,6 +49,23 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
 
         fab = findViewById(R.id.adc_disciplina_fab);
         configFAB();
+
+        povoaLista();
+    }
+
+    private void povoaLista() {
+    ListaDisciplinaDAO DAO = ListaDisciplinaDAO.getInstance();
+
+        for(int i=0; i<6;i++){
+            if(i<=2)
+                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Acima"));
+            else if(i<=4)
+                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Abaixo"));
+            else
+                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Media"));
+
+
+        }
     }
 
     @Override

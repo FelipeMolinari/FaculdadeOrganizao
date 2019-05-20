@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +13,7 @@
 
     </ScrollView>
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toobar_form"
@@ -36,7 +36,7 @@
         android:drawablePadding="8dp"
         android:textSize="24dp" />
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nome_disciplina_edittext"
 
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/dados_disciplina">
 
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/textColorNormal"
@@ -59,12 +59,12 @@
             android:textColor="@color/textColorNormal"
 
             android:textColorHint="@color/textColorNormal"
-            android:textSize="@dimen/textForm" />
-    </android.support.design.widget.TextInputLayout>
+            android:textSize="@dimen/textMed" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sala_disciplina_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         tools:layout_editor_absoluteY="230dp">
 
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/textColorNormal"
@@ -85,11 +85,11 @@
             android:drawablePadding="20dp"
             android:hint="hint"
             android:textColor="@color/textColorNormal"
-            android:textSize="@dimen/textForm" />
-    </android.support.design.widget.TextInputLayout>
+            android:textSize="@dimen/textMed" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/professor_disciplina_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sala_disciplina_edittext">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/textColorNormal"
@@ -110,10 +110,10 @@
             android:drawableTint="@color/textColorNormal"
             android:hint="Professor"
             android:textColor="@color/textColorNormal"
-            android:textSize="@dimen/textForm" />
-    </android.support.design.widget.TextInputLayout>
+            android:textSize="@dimen/textMed" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sobre_materia_disciplina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -125,13 +125,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/professor_disciplina_edittext">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/textColorNormal"
             android:hint="Sobre a matéria"
-            android:textColor="@color/textColorNormal" />
-    </android.support.design.widget.TextInputLayout>
+            android:textColor="@color/textColorNormal"
+            android:textSize="@dimen/textMed" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

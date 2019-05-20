@@ -1,15 +1,17 @@
 package com.example.faculdadeorganizao.ui;
 
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.faculdadeorganizao.R;
@@ -24,12 +26,16 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Toolbar toolbar;
+    private FloatingActionButton myFabAdcAtividade;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__disciplina_escolhida);
+
+        myFabAdcAtividade = findViewById(R.id.adicionar_nova_tarefa);
+
 
 
         toolbar = findViewById(R.id.toolbar);
@@ -41,9 +47,14 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
 
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         }
-
+        myFabAdcAtividade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Activity_CadastroAtividade.class);
+                startActivity(intent);
+            }
+        });
 
 
 

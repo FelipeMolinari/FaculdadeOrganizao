@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="1dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundColor"
+        >
+
+        <TextView
+            android:id="@+id/nome_atividade_item_list"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome da atividade"
+            android:textColor="@color/textColorMain"
+            android:textSize="@dimen/textMed"
+            />
+
+        <TextView
+            android:id="@+id/data_pra_atividade_item_list"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/nome_atividade_item_list"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome da atividade"
+            android:textColor="@color/textColorNormal"
+            android:textSize="@dimen/textMin"
+            android:drawableStart="@drawable/ic_action_time"
+            android:drawablePadding="16dp"
+            />
+        <TextView
+            android:id="@+id/descricao_pra_atividade_item_list"
+            app:layout_constraintTop_toBottomOf="@+id/data_pra_atividade_item_list"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição da atividade"
+            android:textColor="@color/textColorNormal"
+            android:textSize="@dimen/textMin"
+            android:drawableStart="@drawable/ic_action_circle"
+            android:drawablePadding="16dp"
+            />
+
+        <ImageButton
+            android:id="@+id/sharepic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_action_maisopcoes"
+            android:backgroundTint="@color/textColorNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="16dp"
+            />
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

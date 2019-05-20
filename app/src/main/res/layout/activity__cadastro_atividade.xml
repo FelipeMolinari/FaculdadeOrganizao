@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Activity_CadastroAtividade"
+    android:background="@color/backgroundColor">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toobar_form_atividade"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="4dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textMin"
+        android:text="Nome da tarefa"
+        android:id="@+id/nome_atividadade_textView"
+        app:layout_constraintTop_toBottomOf="@id/toobar_form_atividade"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinputlayoutNomeAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/nome_atividadade_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_edit_text_nomeAtividade"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Nome não definido"
+            android:textColorHint="@color/textColorNormal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_define_color"
+            />
+
+            <ImageButton
+                android:id="@+id/button_define_color"
+                android:layout_width="@dimen/textBig"
+                android:layout_height="@dimen/textBig"
+                android:background="@drawable/ic_action_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_edit_text_nomeAtividade"
+                app:layout_constraintBottom_toBottomOf="@id/input_edit_text_nomeAtividade"
+                android:layout_marginEnd="16dp"
+               />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textMin"
+        android:text="Data"
+        android:id="@+id/data_atividade_textView"
+        app:layout_constraintTop_toBottomOf="@id/textinputlayoutNomeAtividade"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/colorPrimary"
+        />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinputlayoutDataAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/data_atividade_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_edit_text_data"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Data não definida"
+                android:textColorHint="@color/textColorNormal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_define_data"
+                />
+
+            <ImageButton
+                android:id="@+id/button_define_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_calendario"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_edit_text_data"
+                app:layout_constraintBottom_toBottomOf="@id/input_edit_text_data"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textMin"
+        android:text="Oque deve ser feito"
+        android:id="@+id/descricao_atividade_textView"
+        app:layout_constraintTop_toBottomOf="@id/textinputlayoutDataAtividade"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/colorPrimary"
+        />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinputlayoutDescricaoAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/descricao_atividade_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_edit_text_descricaoAtividade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Nome não definido"
+                android:textColorHint="@color/textColorNormal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_define_descricao"
+                />
+
+            <ImageButton
+                android:id="@+id/button_define_descricao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_mic"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_edit_text_descricaoAtividade"
+                app:layout_constraintBottom_toBottomOf="@id/input_edit_text_descricaoAtividade"
+                android:layout_marginEnd="16dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textMin"
+        android:text="Essa atividade vale ponto?"
+        android:id="@+id/valeponto_atividade_textView"
+        app:layout_constraintTop_toBottomOf="@id/textinputlayoutDescricaoAtividade"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textinputlayoutvalenotaAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/valeponto_atividade_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_edit_text_valenotaAtividade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:hint="Nota não definido (Não é avaliativo)"
+                android:textColorHint="@color/textColorNormal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/button_define_nota"
+                />
+
+            <ImageButton
+                android:id="@+id/button_define_nota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ic_action_school"
+
+                android:backgroundTint="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="@id/input_edit_text_valenotaAtividade"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/input_edit_text_valenotaAtividade" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,5 +4,6 @@ import com.example.faculdadeorganizao.model.Disciplina;
 
 public interface OnItemClickListener{
 
-    void onItemClick(Disciplina disciplina);
+    void onItemClickDisciplina(Disciplina disciplina);
+
 }

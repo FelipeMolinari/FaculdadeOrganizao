@@ -1,20 +1,34 @@
 package com.example.faculdadeorganizao.model;
 
+import com.example.faculdadeorganizao.R;
+
 import java.util.Calendar;
-import java.util.Date;
 
 public class Atividade {
 
     private String nomeAtividade;
-    private Calendar dataAtividade;
+    private String dataAtividade;
     private String descricaoAtividade;
     private int id_atividade;
+    private int colorAtividade ;
+
+    public Atividade(String nomeAtividade, int colorAtividade, String descricaoAtividade, String dataAtividade ) {
+        this.nomeAtividade = nomeAtividade;
+        this.dataAtividade = dataAtividade;
+        this.descricaoAtividade = descricaoAtividade;
+        this.colorAtividade = colorAtividade;
+    }
+
+    public Atividade() {
+
+    }
+
 
     public void setNomeAtividade(String nomeAtividade) {
         this.nomeAtividade = nomeAtividade;
     }
 
-    public void setDataAtividade(Calendar dataAtividade) {
+    public void setDataAtividade(String dataAtividade) {
         this.dataAtividade = dataAtividade;
     }
 
@@ -26,7 +40,7 @@ public class Atividade {
         return nomeAtividade;
     }
 
-    public Calendar getDataAtividade() {
+    public String getDataAtividade() {
         return dataAtividade;
     }
 
@@ -34,14 +48,16 @@ public class Atividade {
         return descricaoAtividade;
     }
 
-    public Atividade(String nomeAtividade, Calendar dataAtividade, String descricaoAtividade) {
-        this.nomeAtividade = nomeAtividade;
-        this.dataAtividade = dataAtividade;
-        this.descricaoAtividade = descricaoAtividade;
-    }
 
     public void setId_disciplina(int id_disciplina) {
         this.id_atividade = id_disciplina;
     }
 
+    public int getColorAtividade() {
+        return colorAtividade;
+    }
+
+    public void setColorAtividade(int colorAtividade) {
+        this.colorAtividade = colorAtividade;
+    }
 }

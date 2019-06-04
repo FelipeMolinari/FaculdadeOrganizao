@@ -72,18 +72,15 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
             nome_disciplina = itemView.findViewById(R.id.nome_disciplina_nalista);
             local_disciplina = itemView.findViewById(R.id.sala_disciplina_nalista);
             status_disciplina = itemView.findViewById(R.id.status_disciplina_nalista);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    itemClickListener.onItemClick(disciplina);
+                    itemClickListener.onItemClickDisciplina(disciplina);
 
                 }
             });
         }
-
-
-
-
 
 
         public void setElementsViewHolder(Disciplina disciplina) {

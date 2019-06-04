@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class Activity_ListaDisciplinas extends AppCompatActivity {
 
     private FloatingActionButton fab;
-    private Toolbar toast_list;
+    private Toolbar toolbar_list;
     private RecyclerView recyclerViewList;
     private ArrayList<Disciplina> listDisciplina;
     private RecyclerViewListaDisciplinasAdapter adapter;
@@ -41,16 +41,19 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
         listDisciplina = ListaDisciplinaDAO.getInstance().retornaLista();
 
 
+        configElementosDaTela();
+        povoaLista();
+    }
+
+    private void configElementosDaTela() {
         recyclerViewList = findViewById(R.id.list_disciplina_recycler);
         configRecyclerList();
 
-        toast_list = findViewById(R.id.toolbar_list);
+        toolbar_list = findViewById(R.id.toolbar_list);
         configToolbar();
 
         fab = findViewById(R.id.adc_disciplina_fab);
         configFAB();
-
-        povoaLista();
     }
 
     private void povoaLista() {
@@ -75,8 +78,6 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
 
 
         listDisciplina = ListaDisciplinaDAO.getInstance().retornaLista();
-        int size = listDisciplina.size();
-        Log.i("Tamanholista", String.valueOf(size));
         adapter.notifyDataSetChanged();
 
     }
@@ -97,9 +98,12 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
         adapter = new RecyclerViewListaDisciplinasAdapter(listDisciplina,getApplicationContext());
         adapter.setItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(Disciplina disciplina) {
+            public void onItemClickDisciplina(Disciplina disciplina) {
+                Toast.makeText(getApplicationContext(), "Disciplina escolhida "
+                        + disciplina.getNome_disciplina(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Activity_DisciplinaEscolhida.class);
                 startActivity(intent);
+
             }
         });
         recyclerViewList.setAdapter(adapter);
@@ -116,10 +120,10 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
     }
 
     private void configToolbar() {
-        setSupportActionBar(toast_list);
-        toast_list.setNavigationIcon(R.drawable.ic_action_menu);
-        toast_list.setTitle("Nome do Curso");
-        toast_list.setNavigationOnClickListener(new View.OnClickListener() {
+        setSupportActionBar(toolbar_list);
+        toolbar_list.setNavigationIcon(R.drawable.ic_action_menu);
+        toolbar_list.setTitle("Nome do Curso");
+        toolbar_list.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Botão menu clicado", Toast.LENGTH_SHORT).show();

@@ -49,10 +49,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dados_disciplina">
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:backgroundTint="@color/textColorNormal"
 
             android:hint="Nome"
@@ -61,6 +61,8 @@
             android:textColorHint="@color/textColorNormal"
             android:textSize="@dimen/textMed" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
 
@@ -83,7 +85,6 @@
             android:backgroundTint="@color/textColorNormal"
             android:drawableStart="@drawable/ic_action_local"
             android:drawablePadding="20dp"
-            android:hint="hint"
             android:textColor="@color/textColorNormal"
             android:textSize="@dimen/textMed" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,5 +1,7 @@
 package com.example.faculdadeorganizao.ui;
 
+import com.example.faculdadeorganizao.model.Atividade;
+import com.example.faculdadeorganizao.model.Disciplina;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -33,21 +35,38 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__disciplina_escolhida);
+        Disciplina disciplinaEscolhida = new Disciplina();
+        encontraElementosNaTela();
+        navigationOnClickListener();
 
-        myFabAdcAtividade = findViewById(R.id.adicionar_nova_tarefa);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.getSerializable("Disciplina")!= null){
+            disciplinaEscolhida = (Disciplina) bundle.getSerializable("Disciplina");
+            setTitle(disciplinaEscolhida.getNome_disciplina());
+        }
 
 
-
-        toolbar = findViewById(R.id.toolbar);
-        viewPager =  findViewById(R.id.viewPagerDisciplina);
-
-        tabLayout =  findViewById(R.id.tabLayoutDisciplina);
         tabLayout.setupWithViewPager(viewPager);
         setSupportActionBar(toolbar);
 
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        onClickFAB();
+
+        setupViewPage();
+    }
+
+    private void navigationOnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void onClickFAB() {
         myFabAdcAtividade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,11 +74,16 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void encontraElementosNaTela() {
+        myFabAdcAtividade = findViewById(R.id.adicionar_nova_tarefa);
 
 
+        toolbar = findViewById(R.id.toolbar);
+        viewPager =  findViewById(R.id.viewPagerDisciplina);
 
-        setupViewPage();
-
+        tabLayout =  findViewById(R.id.tabLayoutDisciplina);
     }
 
     @Override

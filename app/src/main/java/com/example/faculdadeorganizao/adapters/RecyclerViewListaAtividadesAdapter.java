@@ -23,7 +23,7 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
 
     private ArrayList<Atividade> listAtividades;
     private Context context;
-    public  View.OnClickListener itemClickListener;
+    public View.OnClickListener itemClickListener;
 
 
     public RecyclerViewListaAtividadesAdapter(ArrayList<Atividade> listAtividades, Context context) {
@@ -43,9 +43,10 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewListaAtividadesAdapter.ViewHolderAtividade viewHolder, int position) {
         Atividade novaAtiv = listAtividades.get(position);
-        Toast.makeText(context, "Pos= "+position + " Tamanho = " + listAtividades.size() + " Nova= " + novaAtiv.getNomeAtividade(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Pos= " + position + " Tamanho = " + listAtividades.size() + " Nova= " + novaAtiv.getNomeAtividade(), Toast.LENGTH_SHORT).show();
         viewHolder.setElementsAtividade(novaAtiv);
     }
+
     public void setOnItemClickListener(View.OnClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
@@ -76,14 +77,13 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
 
         }
 
-        public void setElementsAtividade(Atividade novaAtividade){
+        public void setElementsAtividade(Atividade novaAtividade) {
             nomeAtividade.setText(novaAtividade.getNomeAtividade());
             dataAtividade.setText(novaAtividade.getDataAtividade());
-            if(novaAtividade.getDescricaoAtividade().isEmpty()){
+            if (novaAtividade.getDescricaoAtividade().isEmpty()) {
                 descricaoAtividade.setVisibility(View.GONE);
                 circleAtividade.setVisibility(View.GONE);
-            }else
-            {
+            } else {
                 descricaoAtividade.setVisibility(View.VISIBLE);
                 circleAtividade.setVisibility(View.VISIBLE);
                 circleAtividade.setColorFilter(novaAtividade.getColorAtividade());

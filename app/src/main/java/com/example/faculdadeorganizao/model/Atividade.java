@@ -1,18 +1,14 @@
 package com.example.faculdadeorganizao.model;
 
-import com.example.faculdadeorganizao.R;
-
-import java.util.Calendar;
-
 public class Atividade {
 
     private String nomeAtividade;
     private String dataAtividade;
     private String descricaoAtividade;
     private int id_atividade;
-    private int colorAtividade ;
+    private int colorAtividade;
 
-    public Atividade(String nomeAtividade, int colorAtividade, String descricaoAtividade, String dataAtividade ) {
+    public Atividade(String nomeAtividade, int colorAtividade, String descricaoAtividade, String dataAtividade) {
         this.nomeAtividade = nomeAtividade;
         this.dataAtividade = dataAtividade;
         this.descricaoAtividade = descricaoAtividade;

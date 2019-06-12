@@ -96,17 +96,25 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
     private void configAdapter() {
 
         adapter = new RecyclerViewListaDisciplinasAdapter(listDisciplina,getApplicationContext());
+        onClickDisciplina();
+        recyclerViewList.setAdapter(adapter);
+    }
+
+    private void onClickDisciplina() {
         adapter.setItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClickDisciplina(Disciplina disciplina) {
                 Toast.makeText(getApplicationContext(), "Disciplina escolhida "
                         + disciplina.getNome_disciplina(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Activity_DisciplinaEscolhida.class);
+
+                intent.putExtra("Disciplina", disciplina);
+
                 startActivity(intent);
+
 
             }
         });
-        recyclerViewList.setAdapter(adapter);
     }
 
     private void configFAB() {

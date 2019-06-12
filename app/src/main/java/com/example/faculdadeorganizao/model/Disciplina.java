@@ -1,6 +1,8 @@
 package com.example.faculdadeorganizao.model;
 
-public class Disciplina {
+import java.io.Serializable;
+
+public class Disciplina implements Serializable {
 
     private String nome_disciplina;
     private String nome_professor;
@@ -15,6 +17,10 @@ public class Disciplina {
         this.nome_professor = nome_professor;
         this.nome_sala = nome_sala;
         this.status_disciplina = status_disciplina;
+    }
+
+    public Disciplina() {
+
     }
 
     public void setStatus_disciplina(String status_disciplina) {

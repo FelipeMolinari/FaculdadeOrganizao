@@ -1,15 +1,8 @@
 package com.example.faculdadeorganizao.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
-
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,15 +15,15 @@ import com.example.faculdadeorganizao.DAO.AtividadeDisciplinaDAO;
 import com.example.faculdadeorganizao.R;
 import com.example.faculdadeorganizao.fragments.DatePickerFragments;
 import com.example.faculdadeorganizao.model.Atividade;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.DialogFragment;
 import petrov.kristiyan.colorpicker.ColorPicker;
 

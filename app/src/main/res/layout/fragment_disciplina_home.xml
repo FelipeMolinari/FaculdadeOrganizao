@@ -6,15 +6,108 @@
 
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:elevation="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Disciplina HOME"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp" />
+        android:layout_margin="8dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/branco"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/sala_disciplina_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_action_local"
+                android:drawablePadding="16dp"
+                android:text="Salaa disciplina"
+                android:textSize="@dimen/textMed"
+                android:textColor="@color/textColorNormal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/nome_professor_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_action_person"
+                android:drawablePadding="16dp"
+                android:text="Professor"
+                android:textSize="@dimen/textMed"
+                android:textColor="@color/textColorNormal"
+                app:layout_constraintTop_toBottomOf="@id/sala_disciplina_textView"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/sobre_disciplina_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:drawableStart="@drawable/ic_comentario_ac"
+                android:drawablePadding="16dp"
+                android:text="Essa é uma disciplina que fala sobre..."
+                android:textSize="@dimen/textMed"
+                android:textColor="@color/textColorNormal"
+                app:layout_constraintTop_toBottomOf="@id/nome_professor_textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/id_button_editar"
+                />
+            <TextView
+                android:id="@+id/nenhuma_info_disciplina_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Sem informações"
+                android:textSize="@dimen/textMed"
+                android:textColor="@color/textColorNormal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/id_button_editar"
+                android:visibility="invisible"
+                />
+
+            <ImageView
+                android:id="@+id/id_button_editar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/backgroundColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/id_button_editar"
+                    app:layout_constraintBottom_toBottomOf="@id/id_button_editar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="Editar"
+                    android:textSize="@dimen/textMed"
+                    android:textColor="@color/textColorNormal"
+                    android:layout_margin="16dp"
+                    android:drawableStart="@drawable/ic_edit_ac"
+                    android:drawablePadding="16dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,11 @@ import com.example.faculdadeorganizao.R;
 import com.example.faculdadeorganizao.model.Disciplina;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<RecyclerViewListaDisciplinasAdapter.ListaDisciplinaViewHoler> {
 
-    private ArrayList<Disciplina> disciplinaArrayList;
+    private List<Disciplina> disciplinaArrayList;
 
 
     private Context context;
@@ -24,7 +25,7 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
 
 
 
-    public RecyclerViewListaDisciplinasAdapter(ArrayList<Disciplina> disciplinaArrayList, Context context) {
+    public RecyclerViewListaDisciplinasAdapter(List<Disciplina> disciplinaArrayList, Context context) {
         this.disciplinaArrayList = disciplinaArrayList;
         this.context = context;
     }
@@ -56,6 +57,11 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
     @Override
     public int getItemCount() {
         return disciplinaArrayList.size();
+    }
+
+    public void remove(int position) {
+        disciplinaArrayList.remove(position);
+        notifyDataSetChanged();
     }
 
     public class ListaDisciplinaViewHoler extends RecyclerView.ViewHolder {

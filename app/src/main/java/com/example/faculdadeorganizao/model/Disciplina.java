@@ -2,25 +2,49 @@ package com.example.faculdadeorganizao.model;
 
 import java.io.Serializable;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Disciplina implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    private Long id_disciplina;
     private String nome_disciplina;
-    private String nome_professor;
     private String nome_sala;
+    private String nome_professor;
+    private String sobre_disciplina;
     private String status_disciplina;
-    private int id_disciplina;
+    private boolean completa;
+    private float nota_obtida;
+    private float nota_distribuida;
 
-
-
-    public Disciplina(String nome_disciplina, String nome_sala ,String nome_professor, String status_disciplina) {
+    @Ignore
+    public Disciplina(Long id_disciplina, String nome_disciplina, String nome_sala, String nome_professor, String sobre_disciplina, String status_disciplina, boolean completa, float nota_obtida, float nota_distribuida) {
+        this.id_disciplina = id_disciplina;
         this.nome_disciplina = nome_disciplina;
-        this.nome_professor = nome_professor;
         this.nome_sala = nome_sala;
+        this.nome_professor = nome_professor;
+        this.sobre_disciplina = sobre_disciplina;
         this.status_disciplina = status_disciplina;
+        this.completa = completa;
+        this.nota_obtida = nota_obtida;
+        this.nota_distribuida = nota_distribuida;
     }
+
 
     public Disciplina() {
 
+    }
+
+    @Ignore
+    public Disciplina(String nome_disciplina, String nome_sala, String nome_professor, String sobre_disciplina, String status_disciplina) {
+        this.nome_disciplina = nome_disciplina;
+        this.nome_sala = nome_sala;
+        this.nome_professor = nome_professor;
+        this.sobre_disciplina = sobre_disciplina;
+        this.status_disciplina = status_disciplina;
     }
 
     public void setStatus_disciplina(String status_disciplina) {
@@ -33,6 +57,14 @@ public class Disciplina implements Serializable {
 
     public void setNome_disciplina(String nome_disciplina) {
         this.nome_disciplina = nome_disciplina;
+    }
+
+    public float getNota_distribuida() {
+        return nota_distribuida;
+    }
+
+    public void setNota_distribuida(float nota_distribuida) {
+        this.nota_distribuida = nota_distribuida;
     }
 
     public void setNome_professor(String nome_professor) {
@@ -55,11 +87,35 @@ public class Disciplina implements Serializable {
         return nome_sala;
     }
 
-    public int getId_disciplina() {
+    public Long getId_disciplina() {
         return id_disciplina;
     }
 
-    public void setId_disciplina(int id_disciplina) {
+    public void setId_disciplina(Long id_disciplina) {
         this.id_disciplina = id_disciplina;
+    }
+
+    public String getSobre_disciplina() {
+        return sobre_disciplina;
+    }
+
+    public void setSobre_disciplina(String sobre_disciplina) {
+        this.sobre_disciplina = sobre_disciplina;
+    }
+
+    public boolean isCompleta() {
+        return completa;
+    }
+
+    public void setCompleta(boolean completa) {
+        this.completa = completa;
+    }
+
+    public float getNota_obtida() {
+        return nota_obtida;
+    }
+
+    public void setNota_obtida(float nota_obtida) {
+        this.nota_obtida = nota_obtida;
     }
 }

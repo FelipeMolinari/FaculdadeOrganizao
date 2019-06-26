@@ -2,9 +2,16 @@ package com.example.faculdadeorganizao.ui;
 
 import android.content.Intent;
 
+import com.example.faculdadeorganizao.database.DataBasePrincipal;
+import com.example.faculdadeorganizao.database.dao.RoomDisciplinaDAO;
+import com.example.faculdadeorganizao.ui.helper.callback.DisciplinaItemTouchHelperCallback;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
@@ -15,34 +22,34 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.faculdadeorganizao.DAO.ListaDisciplinaDAO;
 import com.example.faculdadeorganizao.R;
 import com.example.faculdadeorganizao.adapters.OnItemClickListener;
 import com.example.faculdadeorganizao.adapters.RecyclerViewListaDisciplinasAdapter;
 import com.example.faculdadeorganizao.model.Disciplina;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Activity_ListaDisciplinas extends AppCompatActivity {
 
     private FloatingActionButton fab;
     private Toolbar toolbar_list;
     private RecyclerView recyclerViewList;
-    private ArrayList<Disciplina> listDisciplina;
+    private List<Disciplina> listDisciplina;
     private RecyclerViewListaDisciplinasAdapter adapter;
-
-
+    private RoomDisciplinaDAO roomDisciplinaDAO;
+    private DataBasePrincipal database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_disciplinas);
+        database = DataBasePrincipal.getInstance(this);
+        roomDisciplinaDAO = database.getRoomDisciplinaDAO();
 
-        listDisciplina = ListaDisciplinaDAO.getInstance().retornaLista();
+        listDisciplina = roomDisciplinaDAO.retornaListaDisciplina();
 
 
         configElementosDaTela();
-        povoaLista();
     }
 
     private void configElementosDaTela() {
@@ -56,36 +63,36 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
         configFAB();
     }
 
-    private void povoaLista() {
-    ListaDisciplinaDAO DAO = ListaDisciplinaDAO.getInstance();
-
-        for(int i=0; i<6;i++){
-            if(i<=2)
-                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Acima"));
-            else if(i<=4)
-                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Abaixo"));
-            else
-                DAO.adcDisciplina(new Disciplina("Disciplina "+ i,"A20"+i,"Prof "+i,"Media"));
-
-
-        }
-    }
 
     @Override
     protected void onResume() {
 
         super.onResume();
 
-
-        listDisciplina = ListaDisciplinaDAO.getInstance().retornaLista();
-        adapter.notifyDataSetChanged();
+        refreshData();
 
     }
 
+    private void refreshData() {
+
+
+        listDisciplina.clear();
+        roomDisciplinaDAO = database.getRoomDisciplinaDAO();
+        listDisciplina.addAll(roomDisciplinaDAO.retornaListaDisciplina());
+        adapter.notifyDataSetChanged();
+    }
+
     private void configRecyclerList() {
-        listDisciplina = ListaDisciplinaDAO.getInstance().retornaLista();
         configLayout();
         configAdapter();
+        configArrastarPraApagar();
+
+
+    }
+
+    private void configArrastarPraApagar() {
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new DisciplinaItemTouchHelperCallback(adapter, roomDisciplinaDAO));
+        itemTouchHelper.attachToRecyclerView(recyclerViewList);
     }
 
     private void configLayout() {
@@ -95,7 +102,7 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
 
     private void configAdapter() {
 
-        adapter = new RecyclerViewListaDisciplinasAdapter(listDisciplina,getApplicationContext());
+        adapter = new RecyclerViewListaDisciplinasAdapter(listDisciplina, getApplicationContext());
         onClickDisciplina();
         recyclerViewList.setAdapter(adapter);
     }
@@ -107,9 +114,7 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Disciplina escolhida "
                         + disciplina.getNome_disciplina(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Activity_DisciplinaEscolhida.class);
-
-                intent.putExtra("Disciplina", disciplina);
-
+                intent.putExtra("Disciplina", disciplina.getId_disciplina());
                 startActivity(intent);
 
 
@@ -141,8 +146,8 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater =getMenuInflater();
-        inflater.inflate(R.menu.menu_lista_disciplina,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_lista_disciplina, menu);
         return true;
     }
 
@@ -161,12 +166,12 @@ public class Activity_ListaDisciplinas extends AppCompatActivity {
     }
 
     private void mudaTema() {
-        Toast.makeText(getApplicationContext(),"Botão mudar tema clicado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Botão mudar tema clicado", Toast.LENGTH_SHORT).show();
 
     }
 
     private void abreMaisOpcoes() {
-        Toast.makeText(getApplicationContext(),"Botão mais opcões clicado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Botão mais opcões clicado", Toast.LENGTH_SHORT).show();
     }
 
 }

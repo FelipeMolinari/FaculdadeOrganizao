@@ -1,70 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/backgroundColor">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-
-    </ScrollView>
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    android:id="@+id/principal_linear"
+    >
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toobar_form"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:elevation="4dp"
-        />
+        android:elevation="4dp" />
+
 
     <TextView
-        android:id="@+id/dados_disciplina"
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_action_school"
-        android:text="Dados da Disciplina"
-        android:textColor="@color/textColorMain"
-        app:layout_constraintTop_toBottomOf="@id/toobar_form"
-        app:layout_constraintStart_toStartOf="parent"
-        android:drawablePadding="8dp"
-        android:textSize="24dp" />
+
+        android:id="@+id/nome_disciplina_textView"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Nome da Disciplina*"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nome_disciplina_edittext"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-
-        android:textColorHint="@color/textColorNormal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dados_disciplina">
+        android:hint=" "
+        android:textColorHint="@color/colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/EditTextCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:backgroundTint="@color/textColorNormal"
-
-            android:hint="Nome"
-            android:textColor="@color/textColorNormal"
-
-            android:textColorHint="@color/textColorNormal"
-            android:textSize="@dimen/textMed" />
+            android:drawableEnd="@drawable/ic_action_school"
+            android:hint="Nome da disciplina" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <TextView
 
-
+        android:id="@+id/nome_sala_textView"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Sala da disciplina"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sala_disciplina_edittext"
@@ -72,22 +57,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:hint="Sala"
+        android:hint=" "
         android:textColorHint="@color/textColorNormal"
-        app:layout_constraintTop_toBottomOf="@id/nome_disciplina_edittext"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nome_sala_textView"
         tools:layout_editor_absoluteY="230dp">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/EditTextCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/textColorNormal"
-            android:drawableStart="@drawable/ic_action_local"
-            android:drawablePadding="20dp"
-            android:textColor="@color/textColorNormal"
-            android:textSize="@dimen/textMed" />
+            android:drawableEnd="@drawable/ic_action_local"
+            android:hint="Sala" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+
+        android:id="@+id/nome_professor_textView"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Professor da Disciplina"
+        tools:layout_editor_absoluteX="16dp" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -95,46 +86,161 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:textColorHint="@color/textColorNormal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sala_disciplina_edittext">
+        android:hint=" "
+        android:textColorHint="@color/textColorNormal">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/EditTextCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/textColorNormal"
-            android:drawableStart="@drawable/ic_action_person"
-            android:drawablePadding="20dp"
-            android:drawableTint="@color/textColorNormal"
-            android:hint="Professor"
-            android:textColor="@color/textColorNormal"
-            android:textSize="@dimen/textMed" />
+            android:drawableEnd="@drawable/ic_action_person"
+            android:hint="Professor" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+
+        android:id="@+id/nome_sobre_textView"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Sobre a Disciplina*"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/professor_disciplina_edittext"
+        tools:layout_editor_absoluteX="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sobre_materia_disciplina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:textColorHint="@color/textColorNormal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/professor_disciplina_edittext">
+        android:hint=" ">
 
         <com.google.android.material.textfield.TextInputEditText
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/textColorNormal"
+            android:drawableEnd="@drawable/ic_comentario_ac"
+            android:drawablePadding="20dp"
             android:hint="Sobre a matéria"
             android:textColor="@color/textColorNormal"
+            android:textColorHint="@color/textColorHint"
             android:textSize="@dimen/textMed" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/jacompletou_textView"
+            style="@style/TextViewCadastroAtividade"
+            android:layout_margin="16dp"
+            android:text="Já completou essa disciplina?"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sim"
+            style="@style/TextViewCadastroAtividade"
+            android:layout_marginStart="24dp"
+
+            android:text="NÃO"
+            app:layout_constraintBottom_toBottomOf="@id/jacompletou_textView"
+            app:layout_constraintStart_toEndOf="@id/jacompletou_textView"
+            app:layout_constraintTop_toTopOf="@id/jacompletou_textView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Switch
+            android:id="@+id/switch_jacompletou"
+            style="@style/Base.TextAppearance.AppCompat.Widget.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:outlineSpotShadowColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/sim"
+            app:layout_constraintStart_toEndOf="@id/sim"
+            app:layout_constraintTop_toTopOf="@id/sim" />
+
+        <TextView
+            android:id="@+id/nao"
+            style="@style/TextViewCadastroAtividade"
+            android:layout_marginStart="8dp"
+
+            android:text="SIM"
+            app:layout_constraintBottom_toBottomOf="@id/sim"
+            app:layout_constraintStart_toEndOf="@id/switch_jacompletou"
+            app:layout_constraintTop_toTopOf="@id/sim"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+        <LinearLayout
+            android:id="@+id/box_nota_obtida"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_jacompletou">
+            <TextView
+                android:id="@+id/nota_obtida"
+                style="@style/TextViewCadastroAtividade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nota obtida*:"
+                />
+
+            <com.warkiz.widget.IndicatorStayLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <com.warkiz.widget.IndicatorSeekBar
+                    android:id="@+id/seekbarNota"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:isb_indicator_color="@color/backgroundColor"
+                    app:isb_indicator_text_color="@color/color8"
+                    app:isb_indicator_text_size="@dimen/textMin"
+                    app:isb_max="100"
+                    app:isb_min="0"
+                    app:isb_only_thumb_draggable="true"
+                    app:isb_progress="60"
+                    app:isb_show_tick_marks_type="oval"
+                    app:isb_show_tick_texts="true"
+                    app:isb_thumb_adjust_auto="true"
+                    app:isb_thumb_color="@color/colorPrimary"
+                    app:isb_tick_marks_drawable="@drawable/ic_action_school"
+                    app:isb_tick_texts_color="@color/colorAccent"
+                    app:isb_tick_texts_size="@dimen/textMed"
+                    app:isb_track_background_color="@color/textColorHint"
+                    app:isb_track_background_size="2dp"
+                    app:isb_track_progress_color="@color/colorAccent"
+                    app:isb_track_progress_size="3dp"
+
+
+                    />
+
+            </com.warkiz.widget.IndicatorStayLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <TextView
+        android:id="@+id/teste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="progress:"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/textMed"
+
+
+        />
+</LinearLayout>

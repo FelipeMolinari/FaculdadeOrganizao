@@ -8,18 +8,19 @@
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
         tools:context=".ui.Activity_DisciplinaEscolhida"
-        >
-    <androidx.appcompat.widget.Toolbar
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    >
+
+        <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_height="62dp"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
         android:title="Disciplina Escolhida"
         app:layout_collapseMode="pin"
-    />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
     <com.google.android.material.tabs.TabLayout
@@ -35,13 +36,15 @@
         app:tabBackground="@color/colorPrimary"
         app:tabMode="fixed"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-
+        android:elevation="4dp"
         />
 
 
         <androidx.viewpager.widget.ViewPager
             app:layout_constraintTop_toBottomOf="@id/tabLayoutDisciplina"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/viewPagerDisciplina"
             android:layout_width="match_parent"
             android:layout_height="0dp">

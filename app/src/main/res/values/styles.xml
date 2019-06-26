@@ -16,7 +16,18 @@
         <item name="android:textSize">@dimen/textMin</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
+    <style name="EditTextCadastro">
+        <item name="android:backgroundTint">@color/textColorNormal</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name= "android:textColorHint">@color/textColorHint</item>
+        <item name="android:layout_marginStart"> 20dp</item>
+        <item name="android:textSize">@dimen/textMed</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/textColorNormal</item>
+    </style>
+
 
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco"
+    android:elevation="4dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/completar_atividade_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_action_completo"
+        android:drawablePadding="32dp"
+        android:text="Completo"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+    <TextView
+        android:id="@+id/editar_atividade_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_edit_ac"
+        android:drawablePadding="32dp"
+        android:text="Editar"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+    <TextView
+        android:id="@+id/arquivar_atividade_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_arquivar_ac"
+        android:drawablePadding="32dp"
+        android:text="Arquivar"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+    <TextView
+        android:id="@+id/deletar_atividade_id"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_delete_ac"
+        android:drawablePadding="32dp"
+        android:text="Deletar"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+    <TextView
+        android:id="@+id/compartilhar_atividade_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_share_ac"
+        android:drawablePadding="32dp"
+        android:text="Compartilhar"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+</LinearLayout>

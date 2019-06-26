@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Activity_CadastroAtividade"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    android:id="@+id/container_principal"
+    >
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,40 +17,43 @@
         app:layout_constraintStart_toStartOf="parent"
         android:elevation="4dp"
         />
+
     <TextView
-        android:text="Nome da tarefa"
+
         android:id="@+id/nome_atividadade_textView"
-        app:layout_constraintTop_toBottomOf="@id/toobar_form_atividade"
-        app:layout_constraintStart_toStartOf="parent"
         style="@style/TextViewCadastroAtividade"
-        />
+        android:layout_height="15dp"
+        android:layout_marginTop="8dp"
+        android:text="Nome da tarefa*"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toobar_form_atividade" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinputlayoutNomeAtividade"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint=" "
         app:layout_constraintEnd_toStartOf="@id/button_define_color"
-        app:layout_constraintTop_toBottomOf="@id/nome_atividadade_textView"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/nome_atividadade_textView">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_text_nomeAtividade"
+            android:hint="Nome não definido"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:hint="Nome não definido"
-            android:textColorHint="@color/textColorNormal"
-            android:textSize="@dimen/textForm"
-            android:textColor="@color/textColorNormal"
             android:backgroundTint="@color/textColorNormal"
-            />
+            android:textColor="@color/textColorNormal"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="@dimen/textForm" />
 
     </com.google.android.material.textfield.TextInputLayout>
 <ImageButton
 android:id="@+id/button_define_color"
-android:layout_width="@dimen/textBig"
-android:layout_height="@dimen/textBig"
+android:layout_width="@dimen/iconBig"
+android:layout_height="@dimen/iconBig"
 android:background="@drawable/ic_action_circle"
 app:layout_constraintEnd_toEndOf="parent"
 app:layout_constraintTop_toTopOf="@id/textinputlayoutNomeAtividade"
@@ -57,13 +62,13 @@ android:layout_marginEnd="16dp"
     />
 
     <TextView
-        style="@style/TextViewCadastroAtividade"
-        android:text="Data"
         android:id="@+id/data_atividade_textView"
-        app:layout_constraintTop_toBottomOf="@id/textinputlayoutNomeAtividade"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Data"
 
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textinputlayoutNomeAtividade" />
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinputlayoutDataAtividade"
         android:layout_width="0dp"
@@ -78,7 +83,7 @@ android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
-                android:textColorHint="@color/textColorNormal"
+                android:textColorHint="@color/textColorHint"
                 android:hint="Data não definida"
                 android:layout_marginEnd="20dp"
                 android:textSize="@dimen/textForm"
@@ -89,8 +94,8 @@ android:layout_marginEnd="16dp"
 
     <ImageButton
         android:id="@+id/button_define_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/iconBig"
+        android:layout_height="@dimen/iconBig"
         android:background="@drawable/ic_action_calendario"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,14 +106,13 @@ android:layout_marginEnd="16dp"
         />
 
 
-
     <TextView
-        style="@style/TextViewCadastroAtividade"
-        android:text="Oque deve ser feito"
         android:id="@+id/descricao_atividade_textView"
-        app:layout_constraintTop_toBottomOf="@id/textinputlayoutDataAtividade"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Oque deve ser feito"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textinputlayoutDataAtividade" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -125,7 +129,7 @@ android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Não definido"
-                android:textColorHint="@color/textColorNormal"
+                android:textColorHint="@color/textColorHint"
                 android:textSize="@dimen/textForm"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -140,8 +144,8 @@ android:layout_marginEnd="16dp"
 
     <ImageButton
         android:id="@+id/button_define_descricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/iconBig"
+        android:layout_height="@dimen/iconBig"
         android:background="@drawable/ic_action_mic"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,59 +153,101 @@ android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@id/textinputlayoutDescricaoAtividade"
         android:layout_marginEnd="16dp"
         />
+
     <TextView
-        style="@style/TextViewCadastroAtividade"
-        android:text="Essa atividade vale ponto?"
         android:id="@+id/valeponto_atividade_textView"
-        app:layout_constraintTop_toBottomOf="@id/textinputlayoutDescricaoAtividade"
+        style="@style/TextViewCadastroAtividade"
+        android:layout_marginTop="8dp"
+        android:text="Peso da atividade"
+
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textinputlayoutDescricaoAtividade" />
 
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textinputlayoutvalenotaAtividade"
-        android:layout_width="match_parent"
+    <com.warkiz.widget.IndicatorStayLayout
+        android:id="@+id/seekbarnotaAtividade"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@id/valeponto_atividade_textView"
+        app:layout_constraintEnd_toStartOf="@id/schoolimage"
         app:layout_constraintStart_toStartOf="parent"
         >
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.warkiz.widget.IndicatorSeekBar
+            android:id="@+id/seekbarNota"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_edit_text_valenotaAtividade"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/textColorNormal"
-                android:hint="Nota não definido (Não é avaliativo)"
-                android:textColor="@color/textColorNormal"
-                android:textColorHint="@color/textColorNormal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/button_define_nota"
-                />
+            android:layout_height="match_parent"
+            app:isb_indicator_color="@color/backgroundColor"
+            app:isb_indicator_text_size="@dimen/textMin"
+            app:isb_max="100"
+            app:isb_min="0"
+            app:isb_only_thumb_draggable="true"
+            app:isb_progress="0"
+            app:isb_show_tick_marks_type="oval"
+            app:isb_show_tick_texts="true"
+            app:isb_thumb_adjust_auto="true"
+            app:isb_thumb_color="@color/color7"
+            app:isb_tick_texts_color="@color/colorAccent"
+            app:isb_tick_texts_size="@dimen/textMed"
+            app:isb_track_background_color="@color/textColorNormal"
+            app:isb_track_background_size="1dp"
+            app:isb_track_progress_color="@color/coloracima"
+            app:isb_track_progress_size="2dp"
+            app:isb_seek_smoothly="true"
+            app:isb_tick_marks_swept_hide="true"
+            app:isb_tick_marks_size = "13dp"
+            />
+    </com.warkiz.widget.IndicatorStayLayout>
 
-            <ImageButton
-                android:id="@+id/button_define_nota"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/ic_action_school"
-
-                android:backgroundTint="@color/colorAccent"
-                app:layout_constraintBottom_toBottomOf="@id/input_edit_text_valenotaAtividade"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/input_edit_text_valenotaAtividade" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/faltara_x_pontos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Falta 100 pontos a ser distribuido"
+        app:layout_constraintTop_toBottomOf="@id/seekbarnotaAtividade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="16dp"
+        />
 
 
+    <ImageView
+        android:id="@+id/schoolimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/seekbarnotaAtividade"
+        app:layout_constraintBottom_toBottomOf="@id/seekbarnotaAtividade"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_action_school"
+        />
+    <LinearLayout
+        android:id="@+id/box_quanto_vale_quanto_disponivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/quanto_vale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor Atividade/"
+            android:textColor="@color/coloracima"
+            android:textSize="@dimen/textMed"
 
+            />
+        <TextView
+            android:id="@+id/quanto_resta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resta Distribuir"
+            android:textColor="@color/textColorNormal"
 
+            android:textSize="@dimen/textMed"
 
+            />
 
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

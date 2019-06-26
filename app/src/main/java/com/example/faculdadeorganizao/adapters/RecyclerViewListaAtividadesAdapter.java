@@ -1,32 +1,30 @@
 package com.example.faculdadeorganizao.adapters;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.faculdadeorganizao.R;
+import com.example.faculdadeorganizao.fragments.BottomSheetOpcoesAtividade;
 import com.example.faculdadeorganizao.model.Atividade;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<RecyclerViewListaAtividadesAdapter.ViewHolderAtividade> {
 
-    private ArrayList<Atividade> listAtividades;
+    private List<Atividade> listAtividades;
     private Context context;
     public View.OnClickListener itemClickListener;
 
 
-    public RecyclerViewListaAtividadesAdapter(ArrayList<Atividade> listAtividades, Context context) {
+    public RecyclerViewListaAtividadesAdapter(List<Atividade> listAtividades, Context context) {
         this.listAtividades = listAtividades;
         this.context = context;
     }
@@ -41,9 +39,19 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewListaAtividadesAdapter.ViewHolderAtividade viewHolder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerViewListaAtividadesAdapter.ViewHolderAtividade viewHolder, final int position) {
         Atividade novaAtiv = listAtividades.get(position);
-        Toast.makeText(context, "Pos= " + position + " Tamanho = " + listAtividades.size() + " Nova= " + novaAtiv.getNomeAtividade(), Toast.LENGTH_SHORT).show();
+        viewHolder.buttonMaisOpcoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BottomSheetOpcoesAtividade bottomSheetOpcoesAtividade = BottomSheetOpcoesAtividade.
+                        newInstance(listAtividades.get(position).getId_atividade());
+                bottomSheetOpcoesAtividade.show(((FragmentActivity) context).getSupportFragmentManager(),"Opções");
+                bottomSheetOpcoesAtividade.onResume();
+
+            }
+        });
+
         viewHolder.setElementsAtividade(novaAtiv);
     }
 
@@ -63,18 +71,26 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
         private TextView dataAtividade;
         private TextView descricaoAtividade;
         private ImageView circleAtividade;
+        private ImageView buttonMaisOpcoes;
+
         public Atividade atividade = new Atividade();
 
 
         public ViewHolderAtividade(@NonNull View itemView) {
             super(itemView);
+            encontraElementosViewHolder(itemView);
+
+            itemView.setTag(this);
+            itemView.setOnClickListener(itemClickListener);
+
+        }
+
+        private void encontraElementosViewHolder(@NonNull View itemView) {
             nomeAtividade = itemView.findViewById(R.id.nome_atividade_item_list);
             dataAtividade = itemView.findViewById(R.id.data_pra_atividade_item_list);
             descricaoAtividade = itemView.findViewById(R.id.descricao_pra_atividade_item_list);
             circleAtividade = itemView.findViewById(R.id.circulo_cor_atividade);
-            itemView.setTag(this);
-            itemView.setOnClickListener(itemClickListener);
-
+            buttonMaisOpcoes = itemView.findViewById(R.id.button_mais_opcao_atividade);
         }
 
         public void setElementsAtividade(Atividade novaAtividade) {
@@ -91,14 +107,6 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
             }
             this.atividade = novaAtividade;
         }
-        /*private void setTextViewDrawableColor(int color) {
-
-            for (Drawable drawable : descricaoAtividade.getCompoundDrawables()) {
-                if (drawable != null) {
-                    drawable.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
-                }
-            }
-        }*/
 
     }
 }

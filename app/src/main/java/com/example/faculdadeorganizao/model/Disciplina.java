@@ -17,8 +17,13 @@ public class Disciplina implements Serializable {
     private String sobre_disciplina;
     private String status_disciplina;
     private boolean completa;
-    private float nota_obtida;
-    private float nota_distribuida;
+    private float nota_obtida=0;
+    private float nota_distribuida = 0;
+    private int limiteFaltas;
+    private int faltas;
+
+    public Disciplina() {
+    }
 
     @Ignore
     public Disciplina(Long id_disciplina, String nome_disciplina, String nome_sala, String nome_professor, String sobre_disciplina, String status_disciplina, boolean completa, float nota_obtida, float nota_distribuida) {
@@ -34,18 +39,17 @@ public class Disciplina implements Serializable {
     }
 
 
-    public Disciplina() {
-
-    }
-
     @Ignore
-    public Disciplina(String nome_disciplina, String nome_sala, String nome_professor, String sobre_disciplina, String status_disciplina) {
+    public Disciplina(String nome_disciplina, String nome_sala, String nome_professor, String sobre_disciplina, String status_disciplina, int faltasPerm) {
         this.nome_disciplina = nome_disciplina;
         this.nome_sala = nome_sala;
         this.nome_professor = nome_professor;
         this.sobre_disciplina = sobre_disciplina;
         this.status_disciplina = status_disciplina;
+        this.limiteFaltas = faltasPerm;
     }
+
+
 
     public void setStatus_disciplina(String status_disciplina) {
         this.status_disciplina = status_disciplina;
@@ -65,6 +69,9 @@ public class Disciplina implements Serializable {
 
     public void setNota_distribuida(float nota_distribuida) {
         this.nota_distribuida = nota_distribuida;
+    }
+    public void adicionarNota(float nota){
+        this.nota_distribuida+= nota;
     }
 
     public void setNome_professor(String nome_professor) {
@@ -117,5 +124,20 @@ public class Disciplina implements Serializable {
 
     public void setNota_obtida(float nota_obtida) {
         this.nota_obtida = nota_obtida;
+    }
+    public int getLimiteFaltas() {
+        return limiteFaltas;
+    }
+
+    public void setLimiteFaltas(int limiteFaltas) {
+        this.limiteFaltas = limiteFaltas;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
     }
 }

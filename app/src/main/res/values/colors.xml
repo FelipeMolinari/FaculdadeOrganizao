@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryLight">#C5CAE9</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#448AFF   </color>
+
+    <color name="colorPrimary">#0d47a1</color>
+    <color name="colorPrimaryDark">#002171</color>
+    <color name="colorPrimaryLight">#5472d3</color>
+
+
+    <color name="colorSecondary">#0088a3</color>
+    <color name="colorSecondaryLight">#00b8d4</color>
+
+
+
+
+
+
+
+
+    <color name="atividadeCompleta">#9F0120</color>
+    <color name="colorAntigo">#448AFF</color>
     <color name = "textColorMain">#212121</color>
     <color name = "textColorNormal">#757575</color>
     <color name = "textColorHint">#C5BDBD</color>
@@ -12,7 +26,5 @@
     <color name="colormedia">#FFEB3B</color>
     <color name="coloracima">#00C853</color>
     <color name="colorabaixo">#D50000</color>
-
-
 </resources>
 

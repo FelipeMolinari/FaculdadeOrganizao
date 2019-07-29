@@ -23,6 +23,7 @@ public abstract class DataBasePrincipal extends RoomDatabase {
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.example.faculdadeorganizao.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,6 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
         this.listAtividades = listAtividades;
         this.context = context;
     }
-
     @NonNull
     @Override
     public RecyclerViewListaAtividadesAdapter.ViewHolderAtividade onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -37,24 +38,21 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
         View inflado = inflater.inflate(R.layout.atividade_disciplina_item_list, viewGroup, false);
         return new ViewHolderAtividade(inflado);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewListaAtividadesAdapter.ViewHolderAtividade viewHolder, final int position) {
-        Atividade novaAtiv = listAtividades.get(position);
+        final Atividade novaAtiv = listAtividades.get(position);
+
         viewHolder.buttonMaisOpcoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BottomSheetOpcoesAtividade bottomSheetOpcoesAtividade = BottomSheetOpcoesAtividade.
-                        newInstance(listAtividades.get(position).getId_atividade());
+                        newInstance(novaAtiv.getId_atividade());
                 bottomSheetOpcoesAtividade.show(((FragmentActivity) context).getSupportFragmentManager(),"Opções");
-                bottomSheetOpcoesAtividade.onResume();
-
             }
         });
 
         viewHolder.setElementsAtividade(novaAtiv);
     }
-
     public void setOnItemClickListener(View.OnClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
@@ -94,6 +92,14 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
         }
 
         public void setElementsAtividade(Atividade novaAtividade) {
+
+            if(novaAtividade.isAtividadeCompleta()){
+                nomeAtividade.setPaintFlags(nomeAtividade.getPaintFlags() | ( Paint.STRIKE_THRU_TEXT_FLAG));
+                nomeAtividade.setTextColor(context.getResources().getColor(R.color.atividadeCompleta));
+            }else{
+                nomeAtividade.setPaintFlags(nomeAtividade.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                nomeAtividade.setTextColor(context.getResources().getColor(R.color.textColorMain));
+            }
             nomeAtividade.setText(novaAtividade.getNomeAtividade());
             dataAtividade.setText(novaAtividade.getDataAtividade());
             if (novaAtividade.getDescricaoAtividade().isEmpty()) {
@@ -107,6 +113,6 @@ public class RecyclerViewListaAtividadesAdapter extends RecyclerView.Adapter<Rec
             }
             this.atividade = novaAtividade;
         }
-
     }
 }
+

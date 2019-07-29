@@ -5,4 +5,12 @@
     <string name="abaixo">  Não foi dessa vez... Estude mais da próxima</string>
     <string name="porpouco">Que pena... Faltou tão pouco pra conseguir</string>
     <string name="narisca"> Não sou eu que disse, mas 60 é 100? haha</string>
+    <string name="atividadeIncompleta">Reavaliar</string>
+
+    <string-array name="spinnerordenar">
+        <item>Por próxima atividade</item>
+        <item>Atividades atrasadas</item>
+        <item>Atividades completas</item>
+    </string-array>
+
 </resources>

@@ -1,7 +1,9 @@
 package com.example.faculdadeorganizao.ui;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -40,7 +43,7 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__disciplina_escolhida);
-
+        configNavig();
 
         encontraElementosNaTela();
         recuperaIdDisciplinaEscolhida();//Recupera o id da disciplina escolhida
@@ -50,7 +53,12 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
 
         setupViewPage();
     }
-
+    private void configNavig() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary)); // Navigation bar the soft bottom of some phones like nexus and some Samsung note series
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark)); //status bar or the time bar at the top
+        }
+    }
     private void configToolbar() {
         setSupportActionBar(toolbar);
         navigationOnClickListener();
@@ -108,7 +116,6 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
         super.onResume();
         disciplinaEscolhida = roomDisciplinaDAO.getDisciplina(idDisciplinaEscolhida);
 
-        //COMO DAR REFLEASH NO FRAGMENT....
 
 
     }
@@ -123,9 +130,7 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.tirar_foto_disciplina:
-                abrirCameraDispositivo();
-                return true;
+
             case R.id.mais_opcoes_id:
                 abrirMaisOpcoes();
 
@@ -152,7 +157,7 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
 
         Tabadapter = new FragmentsTabAdapter(getSupportFragmentManager());
         Tabadapter.addFragment(FragmentDisciplinaHome.newInstance(disciplinaEscolhida), "Home");
-        Tabadapter.addFragment(new FragmentDisciplinaProvas(), "Provas");
+        Tabadapter.addFragment(FragmentDisciplinaProvas.newInstance(disciplinaEscolhida),"Estatística");
         Tabadapter.addFragment(FragmentDisciplinaAtividades.newInstance(disciplinaEscolhida, fragmentTag),"Atividades");
         viewPager.setAdapter(Tabadapter);
 
@@ -161,7 +166,7 @@ public class Activity_DisciplinaEscolhida extends AppCompatActivity {
         return "android:switcher:" + viewId + ":" + id;
     }
 
-    public void onUpdate() {
-        Tabadapter.getItem(2).onResume();
+    public void onUpdate(int tab) {
+        Tabadapter.getItem(tab).onResume();
     }
 }

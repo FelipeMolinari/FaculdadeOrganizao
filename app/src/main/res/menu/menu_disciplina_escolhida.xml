@@ -2,12 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Tirar Foto"
-        android:icon="@drawable/ic_action_camera"
-        app:showAsAction="ifRoom"
-        android:id="@+id/tirar_foto_disciplina"
-        android:orderInCategory="100"
-        />
+
     <item
         android:id="@+id/mais_opcoes_id"
         android:icon="@drawable/ic_action_maisopcoes"

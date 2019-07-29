@@ -30,10 +30,11 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/colorAccent"
+        app:tabIndicatorColor="@color/colorPrimaryLight"
         app:tabIndicatorHeight="4dp"
         android:background="@color/colorPrimary"
         app:tabBackground="@color/colorPrimary"
+
         app:tabMode="fixed"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:elevation="4dp"
@@ -58,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="8dp"
         android:src="@drawable/ic_action_add"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/colorSecondary"
         android:elevation="10dp"
         />
 

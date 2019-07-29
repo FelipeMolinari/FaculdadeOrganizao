@@ -36,7 +36,7 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
     public RecyclerViewListaDisciplinasAdapter.ListaDisciplinaViewHoler onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         //Crio minha viewHolder. É CHAMADO APENAS ALGUMAS VEZES DURANTE A APLICAÇÃO
         View inflate = LayoutInflater.from(context).
-                inflate(R.layout.item_disciplina_lista, viewGroup, false);
+                inflate(R.layout.item_disciplina_list2, viewGroup, false);
         return new ListaDisciplinaViewHoler(inflate);
     }
 
@@ -68,16 +68,16 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
 
         private TextView nome_disciplina;
         private TextView local_disciplina;
-        private ImageView status_disciplina;
         public Disciplina disciplina;
+        public TextView relacao_nota_disciplina;
 
 
 
         public ListaDisciplinaViewHoler(@NonNull View itemView) {
             super(itemView);
-            nome_disciplina = itemView.findViewById(R.id.nome_disciplina_nalista);
-            local_disciplina = itemView.findViewById(R.id.sala_disciplina_nalista);
-            status_disciplina = itemView.findViewById(R.id.status_disciplina_nalista);
+            nome_disciplina = itemView.findViewById(R.id.nome_disciplina_listitem);
+            local_disciplina = itemView.findViewById(R.id.sala_disciplina_itemlist);
+            relacao_nota_disciplina = itemView.findViewById(R.id.relacao_nota_disciplina_itemList);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -92,25 +92,10 @@ public class RecyclerViewListaDisciplinasAdapter extends RecyclerView.Adapter<Re
         public void setElementsViewHolder(Disciplina disciplina) {
             nome_disciplina.setText(disciplina.getNome_disciplina());
             local_disciplina.setText(disciplina.getNome_sala());
-            setStatusDisciplina(disciplina);
+            relacao_nota_disciplina.setText(disciplina.getNota_obtida()+"/"+disciplina.getNota_distribuida());
             this.disciplina = disciplina;
         }
 
-        private void setStatusDisciplina(Disciplina disciplina) {
-            if(disciplina.getStatus_disciplina().equals("Acima")){
-
-                status_disciplina.setImageResource(R.drawable.ic_action_acimadamedia);
-
-            }else if(disciplina.getStatus_disciplina().equals("Abaixo")){
-
-                status_disciplina.setImageResource(R.drawable.ic_action_abaixomedia);
-
-            }else{
-
-                status_disciplina.setImageResource(R.drawable.ic_action_namedia);
-
-            }
-        }
 
     }
 }

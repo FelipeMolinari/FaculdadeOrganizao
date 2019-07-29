@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lineardialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Filtrar"
+        android:textColor="@color/textColorMain"
+        android:textSize="@dimen/textMed" />
+
+    <CheckBox
+        android:id="@+id/filtro_proxima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/colorSecondary"
+        android:text="Próximas atividades"
+        android:textColor="@color/textColorNormal" />
+
+    <CheckBox
+        android:id="@+id/filtro_concluidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/colorSecondary"
+        android:text="Atividades concluídas"
+        android:textColor="@color/textColorNormal" />
+
+    <CheckBox
+        android:id="@+id/filtro_atrasadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:buttonTint="@color/colorSecondary"
+        android:text="Atividade atrasadas"
+        android:textColor="@color/textColorNormal" />
+
+
+
+    <TextView
+        android:id="@+id/confirmar_filtro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="CONFIRMAR"
+        android:textColor="@color/colorSecondaryLight"
+        android:textSize="@dimen/textMin" />
+
+</LinearLayout>

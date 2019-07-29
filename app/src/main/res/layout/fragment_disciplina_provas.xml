@@ -1,18 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/semestatistica"
+        android:text="Sem estatística"
+        android:textSize="@dimen/textMed"
+        android:textColor="@color/textColorNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Disciplina PROVAS"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp" />
+        android:drawableTop="@drawable/ic_action_chart_big"
+        android:elevation="5dp"
+        android:visibility="gone"
+
+        />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_atividade_avaliativas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                >
+
+                <ListView
+
+                    android:id="@+id/list_atividade_avaliativa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/white"
+                    tools:listitem="@layout/lista_atividade_avaliativas" />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chartpienotas"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/cardview_atividade_avaliativas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                 />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

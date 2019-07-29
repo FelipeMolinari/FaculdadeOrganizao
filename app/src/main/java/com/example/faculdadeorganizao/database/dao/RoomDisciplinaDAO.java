@@ -29,4 +29,5 @@ public interface RoomDisciplinaDAO {
 
     @Update
     void updateDisciplina(Disciplina disciplina);
+
 }

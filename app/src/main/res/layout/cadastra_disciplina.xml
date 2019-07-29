@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    android:orientation="vertical"
-    android:id="@+id/principal_linear"
     >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/principal_linear"
+        >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar_form"
@@ -129,18 +134,43 @@
             android:textSize="@dimen/textMed" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+       >
+
+        <TextView
+            android:id="@+id/faltas_permitidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Numero de faltas permitidas"
+            style="@style/TextViewCadastroAtividade"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+        <EditText
+            android:id="@+id/edit_text_limit_faltas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/faltas_permitidas"
+            app:layout_constraintTop_toTopOf="@id/faltas_permitidas"
+            app:layout_constraintBottom_toBottomOf="@id/faltas_permitidas"
+            style="@style/EditTextCadastro"
+            android:inputType="number"
+            android:hint="Sem limite"
+            />
 
         <TextView
             android:id="@+id/jacompletou_textView"
             style="@style/TextViewCadastroAtividade"
             android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
             android:text="Já completou essa disciplina?"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/faltas_permitidas" />
 
         <TextView
             android:id="@+id/sim"
@@ -163,7 +193,10 @@
             android:outlineSpotShadowColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@id/sim"
             app:layout_constraintStart_toEndOf="@id/sim"
-            app:layout_constraintTop_toTopOf="@id/sim" />
+            app:layout_constraintTop_toTopOf="@id/sim"
+            android:backgroundTint="@color/colorSecondary"
+
+            />
 
         <TextView
             android:id="@+id/nao"
@@ -180,7 +213,7 @@
         <LinearLayout
             android:id="@+id/box_nota_obtida"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
@@ -215,11 +248,11 @@
                     app:isb_thumb_adjust_auto="true"
                     app:isb_thumb_color="@color/colorPrimary"
                     app:isb_tick_marks_drawable="@drawable/ic_action_school"
-                    app:isb_tick_texts_color="@color/colorAccent"
+                    app:isb_tick_texts_color="@color/colorSecondary"
                     app:isb_tick_texts_size="@dimen/textMed"
                     app:isb_track_background_color="@color/textColorHint"
                     app:isb_track_background_size="2dp"
-                    app:isb_track_progress_color="@color/colorAccent"
+                    app:isb_track_progress_color="@color/colorSecondary"
                     app:isb_track_progress_size="3dp"
 
 
@@ -238,9 +271,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="progress:"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorSecondary"
         android:textSize="@dimen/textMed"
 
 
         />
-</LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

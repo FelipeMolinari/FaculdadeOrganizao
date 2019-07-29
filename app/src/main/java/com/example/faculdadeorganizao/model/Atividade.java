@@ -1,5 +1,10 @@
 package com.example.faculdadeorganizao.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
@@ -19,14 +24,16 @@ public class Atividade {
             onUpdate = CASCADE,
             onDelete = CASCADE)
     private long disciplinaid;
-
-
     private String nomeAtividade;
     private String dataAtividade;
+    private String dataFormata;//YYYY-MMM-DD
     private String descricaoAtividade;
     private int colorAtividade;
-    private float notaDaAtividade;
-    private float notaTirada;
+    private float notaDaAtividade =0;
+    private float notaTirada=0;
+    private boolean atividadeCompleta;
+
+
 
 
     public float getNotaDaAtividade() {
@@ -45,35 +52,6 @@ public class Atividade {
         this.notaTirada = notaTirada;
     }
 
-    @Ignore
-    public Atividade(Long id_atividade, long disciplinaid, String nomeAtividade, String dataAtividade, String descricaoAtividade, int colorAtividade, float notaDaAtividade, float notaTirada) {
-        this.id_atividade = id_atividade;
-        this.disciplinaid = disciplinaid;
-        this.nomeAtividade = nomeAtividade;
-        this.dataAtividade = dataAtividade;
-        this.descricaoAtividade = descricaoAtividade;
-        this.colorAtividade = colorAtividade;
-        this.notaDaAtividade = notaDaAtividade;
-        this.notaTirada = notaTirada;
-    }
-
-    @Ignore
-    public Atividade(Long id_atividade, int disciplinaid, String nomeAtividade, String dataAtividade, String descricaoAtividade, int colorAtividade) {
-        this.id_atividade = id_atividade;
-        this.disciplinaid = disciplinaid;
-        this.nomeAtividade = nomeAtividade;
-        this.dataAtividade = dataAtividade;
-        this.descricaoAtividade = descricaoAtividade;
-        this.colorAtividade = colorAtividade;
-    }
-
-    @Ignore
-    public Atividade(String nomeAtividade, int colorAtividade, String descricaoAtividade, String dataAtividade) {
-        this.nomeAtividade = nomeAtividade;
-        this.dataAtividade = dataAtividade;
-        this.descricaoAtividade = descricaoAtividade;
-        this.colorAtividade = colorAtividade;
-    }
 
     public Atividade() {
 
@@ -128,4 +106,23 @@ public class Atividade {
     public void setColorAtividade(int colorAtividade) {
         this.colorAtividade = colorAtividade;
     }
+
+    public void setAtividadeCompleta(boolean atividadeCompleta) {
+        this.atividadeCompleta = atividadeCompleta;
+    }
+
+    public boolean isAtividadeCompleta() {
+        return atividadeCompleta;
+    }
+
+
+
+    public String getDataFormata() {
+        return dataFormata;
+    }
+
+    public void setDataFormata(String dataFormata) {
+        this.dataFormata = dataFormata;
+    }
+
 }

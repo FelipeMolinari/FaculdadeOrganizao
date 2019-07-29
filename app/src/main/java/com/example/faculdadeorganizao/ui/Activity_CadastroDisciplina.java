@@ -2,6 +2,7 @@ package com.example.faculdadeorganizao.ui;
 
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -26,6 +28,7 @@ import com.warkiz.widget.SeekParams;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
 
@@ -37,6 +40,7 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
     private TextInputLayout salaDisciplina;
     private TextInputLayout nomeProfessor;
     private TextInputLayout sobreDisciplina;
+    private EditText faltasPermitidas;
     private boolean activityEdit;
     private Disciplina disciplinaEscolhida;
     private Switch aSwitchJaCompletou;
@@ -51,7 +55,7 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastra_disciplina);
         DataBasePrincipal dataBasePrincipal = DataBasePrincipal.getInstance(this);
-
+configNavig();
         roomDisciplinaDAO = dataBasePrincipal.getRoomDisciplinaDAO();
         toolbar = findViewById(R.id.toobar_form);
         buscaElementonaTela();
@@ -61,7 +65,12 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
         configuraElementosTela();
 
     }
-
+    private void configNavig() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark)); // Navigation bar the soft bottom of some phones like nexus and some Samsung note series
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark)); //status bar or the time bar at the top
+        }
+    }
     private void configuraElementosTela() {
 
         configSwitch();
@@ -146,6 +155,7 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
             salaDisciplina.getEditText().setText(disciplinaEscolhida.getNome_sala());
             nomeProfessor.getEditText().setText(disciplinaEscolhida.getNome_professor());
             sobreDisciplina.getEditText().setText(disciplinaEscolhida.getSobre_disciplina());
+            faltasPermitidas.setText(disciplinaEscolhida.getLimiteFaltas()+"");
             if (disciplinaEscolhida.isCompleta()) {
                 aSwitchJaCompletou.setChecked(disciplinaEscolhida.isCompleta());
                 box_notaObtica.setVisibility(View.VISIBLE);
@@ -209,6 +219,8 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
                     finish();
                 } else {
 
+                    Toast.makeText(getApplicationContext(),
+                            "Faltas permitidas: "+ disciplina.getLimiteFaltas(), Toast.LENGTH_SHORT).show();
                     roomDisciplinaDAO.adcDisciplina(disciplina);
                     finish();
                 }
@@ -223,7 +235,8 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
                         "Disciplina alterada", Toast.LENGTH_SHORT).show();
                 finish();
             } else {
-
+                Toast.makeText(getApplicationContext(),
+                        "Faltas permitidas: "+ disciplina.getLimiteFaltas(), Toast.LENGTH_SHORT).show();
                 roomDisciplinaDAO.adcDisciplina(disciplina);
                 finish();
             }
@@ -237,7 +250,10 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
         final String salaDis = salaDisciplina.getEditText().getText().toString();
         final String nomeProf = nomeProfessor.getEditText().getText().toString();
         final String sobreDis = sobreDisciplina.getEditText().getText().toString();
-
+        int faltasPerm=0;
+        if(!faltasPermitidas.getText().toString().isEmpty()){
+            faltasPerm = Integer.parseInt(faltasPermitidas.getText().toString());
+        }
         if (activityEdit) {
             //Se estiver editando uma disciplina entra aqui. Os dados da disciplina é alterado
             // e a disciplina alterada é retornada
@@ -245,11 +261,12 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
             disciplinaEscolhida.setNome_sala(salaDis);
             disciplinaEscolhida.setNome_professor(nomeProf);
             disciplinaEscolhida.setSobre_disciplina(sobreDis);
+            disciplinaEscolhida.setLimiteFaltas(faltasPerm);
 
             return disciplinaEscolhida;
         } else {
             // Retorna uma nova disciplina a ser criada
-            Disciplina novaDisciplina = new Disciplina(nomeDis, salaDis, nomeProf, sobreDis, "Status Indiferente");
+            Disciplina novaDisciplina = new Disciplina(nomeDis, salaDis, nomeProf, sobreDis, "Status Indiferente", faltasPerm);
             return novaDisciplina;
 
         }
@@ -268,10 +285,7 @@ public class Activity_CadastroDisciplina extends AppCompatActivity {
         indicatorSeekBar = findViewById(R.id.seekbarNota);
         teste = findViewById(R.id.teste);
         principal = findViewById(R.id.principal_linear);
-        //nota_obtida = findViewById(R.id.nota_obtida_editText);
-        //confirmar_nota_obtida = findViewById(R.id.confirmar_nota_obtida_disciplina);
-        //textoNotaObtida = findViewById(R.id.texto_da_nota);
-
+        faltasPermitidas = findViewById(R.id.edit_text_limit_faltas);
     }
 
 

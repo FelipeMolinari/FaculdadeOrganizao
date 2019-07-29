@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/circle_nota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_action_circle_big"
+
+
+        />
+
+    <TextView
+        android:id="@+id/nome_atividade_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Nome atividade"
+        android:textColor="@color/textColorMain"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/textMed"
+        />
+<TextView
+    android:id="@+id/nota_atividade_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="10/10"
+    android:textColor="@color/textColorNormal"
+    android:textSize="@dimen/textForm"
+    android:layout_gravity="center_vertical"
+    android:gravity="end"
+    android:layout_marginEnd="24dp"
+    />
+
+</LinearLayout>
